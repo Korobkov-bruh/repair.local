@@ -1,0 +1,15 @@
+.footer {
+    grid-area: footer;
+
+    color: #272727;
+    padding: 15px;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    place-items: center;
+
+    &__copy {
+        grid-column: 1 / 2;
+    }
+}

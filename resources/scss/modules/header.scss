@@ -1,0 +1,35 @@
+/* шапка */
+.header {
+    grid-area: header;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 200px 1fr;
+    align-items: center;
+
+    &__logo {
+        grid-column: 1 / 2;
+        padding-left: 10px;
+    }
+
+    &__menu {
+        grid-column: 2 / 3;
+    }
+
+    &__items {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: end;
+        align-items: center;
+
+        column-gap: 10px;
+    }
+
+    &__item {
+        list-style: none
+    }
+
+    &__link {
+        @include button;
+    }
+}

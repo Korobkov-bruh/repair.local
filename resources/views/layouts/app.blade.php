@@ -13,16 +13,27 @@
 <body class="container">
 
   <header class="header">
-    @include('layouts.menu')
+    <a href="{{ route('welcome') }}" class="header__logo">
+      Проноут
+    </a>
+    <nav class="header__menu">
+      <ul class="header__items">
+        @include('layouts.menu')
+      </ul>
+    </nav>
   </header>
+  >
 
   <main class="main">
     @yield('content')
   </main>
 
   <footer class="footer">
-
+    <div class="footer__copy">
+      &copy; Проноут, 2024
+    </div>
   </footer>
+
 
 </body>
 
