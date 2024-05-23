@@ -22,19 +22,18 @@
       </ul>
     </nav>
   </header>
-  >
+
 
   <main class="main">
     @yield('content')
   </main>
+
 
   <footer class="footer">
     <div class="footer__copy">
       &copy; Проноут, 2024
     </div>
   </footer>
-
-
 
 </body>
 

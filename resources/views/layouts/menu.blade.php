@@ -23,6 +23,11 @@
         Настройки
       </a>
     </li>
+    <li class="header__item">
+      <a href="{{ route('services.index') }}" class="header__link">
+        Услуги
+      </a>
+    </li>
   @endcan
 
   {{-- кнопка выход --}}

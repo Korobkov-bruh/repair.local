@@ -3,16 +3,17 @@
     text-decoration: none;
 
     color: #000000;
+    background-color: #ffffff;
 
     padding: 15px;
-    border-radius: 5px;
 
     &:hover,
     &_active {
-        text-decoration: underline;
+        border-bottom: 1px solid #a1a1a1;
     }
 
 }
+
 
 @mixin input {
     width: 100%;

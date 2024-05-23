@@ -20,7 +20,15 @@
 
         align-self: start;
         justify-self: center;
+    }
 
+    &__panel {
+        grid-column: 2 / 3;
+
+        align-self: start;
+
+        background-color: #ffffff;
+        padding: 20px;
     }
 
 }

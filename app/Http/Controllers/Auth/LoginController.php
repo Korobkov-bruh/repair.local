@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 class LoginController extends Controller
 {
 
@@ -18,7 +17,6 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-
     /**
      * Обработка попыток аутентификации.
      *
@@ -28,7 +26,7 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request)
     {
-        // получаем только login и пароль
+        // получаем только емейл и пароль
         $credentials = $request->only('login', 'password');
         // Метод attempt
         // вернет true, если аутентификация прошла успешно.
@@ -51,47 +49,5 @@ class LoginController extends Controller
         return back()->withErrors([
             'login' => 'Пользователя с такими данными не существует',
         ])->onlyInput('login');
-    }
-
-
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }
