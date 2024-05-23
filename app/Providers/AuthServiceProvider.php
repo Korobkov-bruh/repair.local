@@ -2,25 +2,31 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as
+ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
     /**
-     * The model to policy mappings for the application.
+     * Карта политик приложения.
      *
-     * @var array<class-string, class-string>
+     * @var array
      */
     protected $policies = [
         //
     ];
 
     /**
-     * Register any authentication / authorization services.
+     * Регистрация любых служб аутентификации / авторизации.
      */
     public function boot(): void
     {
-        //
+        // Шлюз для администратора
+        Gate::define('admin', fn ($user) => $user->position == 'admin');
+        // Шлюз для продавца
+        Gate::define('seller', fn ($user) => $user->position == 'seller');
+        // Шлюз для мастера
+        Gate::define('master', fn ($user) => $user->position == 'master');
     }
 }

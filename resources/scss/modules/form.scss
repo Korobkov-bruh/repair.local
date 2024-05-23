@@ -1,0 +1,36 @@
+.form {
+
+    background-color: #ffffff;
+    border: 1px solid #a1a1a1;
+
+    padding: 20px;
+    width: 100%;
+
+    &__row {
+        margin-bottom: 20px;
+    }
+
+    &__label {
+        font-weight: bold;
+    }
+
+    &__input {
+        @include input;
+    }
+
+    &__message {
+        color: #b80000;
+    }
+
+    &__checkbox {
+        @include checkbox;
+    }
+
+    &__button {
+        @include button;
+    }
+
+    &__select {
+        @include input;
+    }
+}

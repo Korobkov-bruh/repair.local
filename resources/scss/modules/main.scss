@@ -1,4 +1,4 @@
-main {
+.main {
     grid-area: main;
 
     display: grid;
@@ -6,4 +6,21 @@ main {
     grid-template-rows: 40px 1fr;
     align-content: start;
     row-gap: 20px;
+
+    &__title {
+        grid-column: 2 / 3;
+
+        padding: 10px;
+        justify-self: center;
+        align-self: center;
+    }
+
+    &__form {
+        grid-column: 2 / 3;
+
+        align-self: start;
+        justify-self: center;
+
+    }
+
 }
