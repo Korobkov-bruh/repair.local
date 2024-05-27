@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /**
@@ -34,4 +35,7 @@ Route::resource('reviews', ReviewController::class)
     ->middleware('auth', 'can:admin');
 
 Route::resource('offices', OfficeController::class)
+    ->middleware('auth', 'can:admin');
+
+Route::resource('users', UserController::class)
     ->middleware('auth', 'can:admin');

@@ -38,6 +38,11 @@
         Офисы
       </a>
     </li>
+    <li class="header__item">
+      <a href="{{ route('users.index') }}" class="header__link">
+        Сотрудники
+      </a>
+    </li>
   @endcan
 
 
