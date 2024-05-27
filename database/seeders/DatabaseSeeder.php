@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
                 ServicesSeeder::class,
                 ReviewSeeder::class,
                 OfficeSeeder::class,
+                ApplicationSeeder::class,
             ]
         );
         User::factory(1)->admin()->create();

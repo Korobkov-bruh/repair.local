@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\OfficeController;
@@ -39,3 +40,6 @@ Route::resource('offices', OfficeController::class)
 
 Route::resource('users', UserController::class)
     ->middleware('auth', 'can:admin');
+// Сотрудники
+Route::resource('applications', ApplicationController::class)
+    ->middleware('auth');

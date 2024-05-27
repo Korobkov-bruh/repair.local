@@ -15,6 +15,12 @@
       {{ Auth::user()->name }}
     </a>
   </li>
+  <li class="header__item">
+    <a href="{{ route('applications.index') }}" class="header__link">
+      Заявки
+    </a>
+  </li>
+
 
   {{-- администратор --}}
   @can('admin')
