@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\DetailController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ServicesController;
@@ -43,3 +44,6 @@ Route::resource('users', UserController::class)
 // Сотрудники
 Route::resource('applications', ApplicationController::class)
     ->middleware('auth');
+
+Route::resource('details', DetailController::class)
+    ->middleware('auth', 'can:admin');

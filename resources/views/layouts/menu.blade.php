@@ -49,6 +49,11 @@
         Сотрудники
       </a>
     </li>
+    <li class="header__item">
+      <a href="{{ route('details.index') }}" class="header__link">
+        Настройки
+      </a>
+    </li>
   @endcan
 
 
