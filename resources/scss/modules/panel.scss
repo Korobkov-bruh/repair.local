@@ -1,0 +1,94 @@
+.panel {
+
+
+
+    // .panel__th
+
+    &__th {
+        text-align: center;
+        border: 1px solid #a1a1a1;
+        background-color: #a1a1a1;
+    }
+
+    // .panel__tr
+
+    &__tr {
+        text-align: center;
+
+    }
+
+    // .panel__td
+
+    &__td {
+        text-align: center;
+        border: 1px solid #a1a1a1;
+        background-color: #a1a1a1;
+    }
+
+    &__a {
+        display: grid;
+        grid-auto-flow: column;
+        background-color: #a1a1a1;
+        border: 1px solid #a1a1a1;
+        text-align: center;
+
+    }
+
+    // .panel__show
+
+    &__show {
+
+        text-align: center;
+
+        color: #000000;
+        background-color: #ffffff;
+        background-color: #a1a1a1;
+
+
+        &:hover,
+        &_active {
+            border-bottom: 1px solid #a1a1a1;
+        }
+    }
+
+    // .panel__edit
+
+    &__edit {
+        text-decoration: none;
+        text-align: center;
+        color: #000000;
+        background-color: #ffffff;
+        width: 80%;
+
+        background-color: #a1a1a1;
+
+
+        &:hover,
+        &_active {
+            border-bottom: 1px solid #a1a1a1;
+        }
+
+    }
+
+    // .panel__delete
+
+    &__delete {
+        text-decoration: none;
+        background-color: #a1a1a1;
+        color: #000000;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+
+
+
+        &:hover,
+        &_active {
+            border-bottom: 1px solid #a1a1a1;
+        }
+    }
+
+
+
+
+}

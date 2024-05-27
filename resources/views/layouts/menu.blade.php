@@ -28,7 +28,18 @@
         Услуги
       </a>
     </li>
+    <li class="header__item">
+      <a href="{{ route('reviews.index') }}" class="header__link">
+        Отзывы
+      </a>
+    </li>
+    <li class="header__item">
+      <a href="{{ route('offices.index') }}" class="header__link">
+        Офисы
+      </a>
+    </li>
   @endcan
+
 
   {{-- кнопка выход --}}
   <form action="{{ route('logout') }}" method="post">

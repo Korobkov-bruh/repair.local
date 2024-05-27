@@ -12,6 +12,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $this->call(
+            [
+                ServicesSeeder::class,
+                ReviewSeeder::class,
+                OfficeSeeder::class,
+            ]
+        );
         User::factory(1)->admin()->create();
     }
 }

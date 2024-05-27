@@ -2,11 +2,15 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ServicesController;
 use Illuminate\Support\Facades\Route;
 
 /**
  * Web Routes
  */
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,3 +24,14 @@ Route::post('/login', [LoginController::class, 'authenticate'])
 
 Route::post('/logout', [LogoutController::class, 'logout'])
     ->name('logout')->middleware('auth');
+
+// Администратор
+Route::resource('services', ServicesController::class)
+    ->middleware('auth');
+
+// Администратор
+Route::resource('reviews', ReviewController::class)
+    ->middleware('auth', 'can:admin');
+
+Route::resource('offices', OfficeController::class)
+    ->middleware('auth', 'can:admin');

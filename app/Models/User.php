@@ -26,7 +26,6 @@ class User extends Authenticatable
         'password',
     ];
 
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -46,4 +45,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Получение офиса, в котором работает пользователь
+     *
+     * @return Office
+     */
+    public function office()
+    {
+        return $this->belongsTo(Office::class);
+    }
 }

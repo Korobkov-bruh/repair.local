@@ -24,11 +24,15 @@
 
     &__panel {
         grid-column: 2 / 3;
-
         align-self: start;
 
         background-color: #ffffff;
         padding: 20px;
+        border-radius: 10px;
+        border: 1px solid black;
+
+
+
     }
 
 }

@@ -6,33 +6,33 @@
 
 <h2 class="main__title">Услуги</h2>
 <a href="{{ route('services.create') }}">Добавить услугу</a>
-<table class="main__panel">
+<table class="main__panel panel">
     <thead>
-        <th>ID</th>
-        <th>Услуга</th>
-        <th>Цена</th>
-        <th>Примечание</th>
-        <th></th>
+        <th class="panel__th">ID</th>
+        <th class="panel__th">Услуга</th>
+        <th class="panel__th">Цена</th>
+        <th class="panel__th">Примечание</th>
+        <th class="panel__th"></th>
     </thead>
     <tbody>
         @forelse($services as $service)
-        <tr>
-            <td>{{ $service->id }}</td>
-            <td>{{ $service->name }}</td>
-            <td>{{ $service->price }}</td>
-            <td>{{ $service->note ?? '' }}</td>
-            <td>
-                <a href="{{ route('services.show', $service->id) }}">
+        <tr class="panel__tr">
+            <td class="panel__td">{{ $service->id }}</td>
+            <td class="panel__td"> {{ $service->name }}</td>
+            <td class="panel__td">{{ $service->price }}</td>
+            <td class="panel__td">{{ $service->note ?? '' }}</td>
+            <td class="panel__a">
+                <a href="{{ route('services.show', $service->id) }}" class="panel__show">
                     Просмотр
                 </a>
-                <a href="{{ route('services.edit', $service->id) }}">
+                <a href="{{ route('services.edit', $service->id) }}" class="panel__edit">
                     Редактировать
                 </a>
                 <form action="{{ route('services.destroy', $service->id) }}" method="post">
                     @csrf
                     @method('delete')
 
-                    <button type="submit">
+                    <button type="submit" class="panel__delete">
                         Удалить
                     </button>
                 </form>
