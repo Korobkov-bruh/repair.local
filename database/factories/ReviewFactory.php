@@ -17,7 +17,18 @@ class ReviewFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'text' => fake()->text(200),
+            'rating' => fake()->numberBetween(1, 10),
+            'email' => fake()->unique()->safeEmail(),
+            'status' => fake()->randomElement(
+                [
+                    'Новый',
+                    'Модерация',
+                    'Опубликован',
+                    'Отклонен'
+                ]
+            ),
         ];
     }
 }

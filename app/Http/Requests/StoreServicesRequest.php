@@ -22,7 +22,23 @@ class StoreServicesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required'],
+            'price' => ['required', 'numeric', 'min:0'],
+        ];
+    }
+
+    /**
+     * Сообщения об ошибках
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Введите название услуги',
+            'price.required' => 'Введите стоимость услуги',
+            'price.numeric' => 'Стоимость услуги должна быть числом',
+            'price.min' => 'Стоимость услуги не может быть меньше :min',
         ];
     }
 }

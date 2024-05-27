@@ -22,7 +22,13 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // напишите необходимые правила
+            'name' => ['required'],
+            'login' => [
+                'required',
+            ],
+            'position' => ['required', 'max:20'],
+            'email' => ['required', 'max:50'],
+            'password' => ['nullable'],
         ];
     }
 
@@ -34,7 +40,13 @@ class UpdateUserRequest extends FormRequest
     public function messages(): array
     {
         return [
-            // напишите необходимые сообщения
+            'name.required' => 'Это поле обязательно',
+            'name.unique' => 'Это имя уже используется',
+            'login.unique' => 'Это имя уже используется',
+            'position.required' => 'Это поле обязательно',
+            'position.max' => 'Не более :max символов',
+            'email.required' => 'Это поле обязательно',
+            'email.max' => 'Не более :max символов',
         ];
     }
 }

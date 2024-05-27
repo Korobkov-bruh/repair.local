@@ -22,7 +22,9 @@ class StoreOfficeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // напишите необходимые правила
+            'name' => ['required', 'max:20'],
+            'address' => ['required'],
+            'hours' => ['required'],
         ];
     }
 
@@ -34,7 +36,10 @@ class StoreOfficeRequest extends FormRequest
     public function messages(): array
     {
         return [
-            // напишите необходимые сообщения
+            'name.required' => 'Это поле обязательно',
+            'name.max' => 'Не более :max символов',
+            'address.required' => 'Это поле обязательно',
+            'hours.required' => 'Это поле обязательно',
         ];
     }
 }

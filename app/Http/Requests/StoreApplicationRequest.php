@@ -22,7 +22,11 @@ class StoreApplicationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // напишите необходимые правила
+            'model' => ['required'],
+            'fault' => ['required'],
+            'customer' => ['required'],
+            'status' => ['required', 'max:20'],
+            'completion' => ['required'],
         ];
     }
 
@@ -34,7 +38,12 @@ class StoreApplicationRequest extends FormRequest
     public function messages(): array
     {
         return [
-            // напишите необходимые сообщения
+            'model.required' => 'Это поле обязательно',
+            'fault.required' => 'Это поле обязательно',
+            'customer.required' => 'Это поле обязательно',
+            'status.required' => 'Это поле обязательно',
+            'status.max' => 'Не более :max символов',
+            'completion.required' => 'Это поле обязательно',
         ];
     }
 }

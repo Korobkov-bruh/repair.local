@@ -1,20 +1,3 @@
-@mixin button {
-    font-size: 1rem;
-    text-decoration: none;
-
-    color: #000000;
-    background-color: #ffffff;
-
-    padding: 15px;
-
-    &:hover,
-    &_active {
-        border-bottom: 1px solid #a1a1a1;
-    }
-
-}
-
-
 @mixin input {
     width: 100%;
     padding: 10px;
@@ -47,5 +30,26 @@
 
     &_error {
         border-color: #b80000;
+    }
+}
+
+@mixin button {
+    font-size: 1rem;
+    text-decoration: none;
+
+    color: #000000;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+
+    padding: 15px;
+    transition-duration: 0.2s;
+
+    &:hover,
+    &_active {
+        border-bottom: 1px solid #a1a1a1;
+    }
+
+    &_small {
+        padding: 5px;
     }
 }

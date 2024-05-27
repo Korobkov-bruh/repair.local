@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Review;
 use Illuminate\Database\Seeder;
 
 class ReviewSeeder extends Seeder
@@ -12,6 +12,9 @@ class ReviewSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        // создать 15 записей
+        Review::factory()
+            ->count(15)
+            ->create();
     }
 }

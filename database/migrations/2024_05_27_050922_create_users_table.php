@@ -16,7 +16,7 @@ return new class extends Migration
             function (Blueprint $table) {
                 $table->id();
                 $table->string('name');
-                $table->string('login');
+                $table->string('login')->unique();
                 $table->string('email')->unique();
                 $table->string('position', 20)->default('user');
                 $table->timestamp('email_verified_at')->nullable();
@@ -24,11 +24,11 @@ return new class extends Migration
                 $table->rememberToken();
                 $table->timestamps();
 
-                $table->unsignedBigInteger('office_id');
+                $table->unsignedBigInteger('office_id')->nullable();
 
-                $table->foreign('office_id')
-                    ->references('id')->on('offices')
-                    ->onDelete('cascade');
+                // $table->foreign('office_id')
+                //     ->references('id')->on('offices')
+                //     ->onDelete('cascade');
             }
         );
     }

@@ -22,7 +22,11 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // напишите необходимые правила
+            'name' => ['required'],
+            'login' => ['required', 'unique:users'],
+            'position' => ['required', 'max:20'],
+            'email' => ['required', 'max:50', 'unique:users'],
+            'password' => ['required'],
         ];
     }
 
@@ -34,7 +38,15 @@ class StoreUserRequest extends FormRequest
     public function messages(): array
     {
         return [
-            // напишите необходимые сообщения
+            'name.required' => 'Это поле обязательно',
+            'login.required' => 'Это поле обязательно',
+            'login.unique' => 'Это имя уже используется',
+            'email.unique' => 'Это имя уже используется',
+            'position.required' => 'Это поле обязательно',
+            'position.max' => 'Не более :max символов',
+            'email.required' => 'Это поле обязательно',
+            'email.max' => 'Не более :max символов',
+            'password.required' => 'Это поле обязательно',
         ];
     }
 }

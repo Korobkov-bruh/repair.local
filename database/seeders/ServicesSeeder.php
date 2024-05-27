@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Services;
 use Illuminate\Database\Seeder;
 
 class ServicesSeeder extends Seeder
@@ -12,6 +12,9 @@ class ServicesSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        // создать 15 записей
+        Services::factory()
+            ->count(15)
+            ->create();
     }
 }

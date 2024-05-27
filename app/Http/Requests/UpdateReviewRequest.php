@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class UpdateReviewRequest extends FormRequest
 {
     /**
-     * Авторизация пользователя при запросе
+     * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
@@ -15,9 +15,9 @@ class UpdateReviewRequest extends FormRequest
     }
 
     /**
-     * Правила валидации запросов
+     * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
@@ -25,7 +25,7 @@ class UpdateReviewRequest extends FormRequest
             'name' => ['required'],
             'text' => ['required'],
             'rating' => ['required', 'numeric', 'between:1,10'],
-            'email' => ['email'],
+            'email' => ['email', 'nullable'],
             'status' => ['required'],
         ];
     }
@@ -38,7 +38,13 @@ class UpdateReviewRequest extends FormRequest
     public function messages(): array
     {
         return [
-            // напишите необходимые сообщения
+            'name.required' => 'Введите имя',
+            'text.required' => 'Введите отзыв',
+            'rating.required' => 'Назначьте рейтинг',
+            'rating.numeric' => 'Это числовое значение',
+            'rating.between' => 'Должен быть в пределах :min>:max',
+            'email.email' => 'Введите e-mail',
+            'status.required' => 'Нзанчьте статус',
         ];
     }
 }

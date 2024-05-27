@@ -1,0 +1,38 @@
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+
+    thead th {
+        padding: 10px;
+        font-weight: bold;
+        text-align: left;
+        border: 1px solid #272727;
+
+        &:last-child {
+            text-align: right;
+        }
+    }
+
+    tbody td {
+        padding: 10px;
+        border: 1px solid #272727;
+
+        &:last-child {
+            text-align: right;
+        }
+    }
+
+    a {
+        @include button;
+    }
+
+    & form {
+        display: inline;
+
+        button {
+            display: inline;
+            @include button;
+        }
+    }
+}

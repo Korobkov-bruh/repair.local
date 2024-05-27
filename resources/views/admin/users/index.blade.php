@@ -25,7 +25,7 @@
           <td>{{ $user->id }}</td>
           <td>{{ $user->name }}</td>
           <td>{{ $user->position }}</td>
-          <td>{{ $user->office->name }}</td>
+          <td>{{ $user->office->name ?? '' }}</td>
           <td>
             <a href="{{ route('users.show', $user->id) }}" class="form__button_small">
               Просмотр

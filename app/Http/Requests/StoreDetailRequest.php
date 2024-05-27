@@ -22,7 +22,8 @@ class StoreDetailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // напишите необходимые правила
+            'name' => ['required', 'max:20'],
+            'value' => ['required'],
         ];
     }
 
@@ -34,7 +35,9 @@ class StoreDetailRequest extends FormRequest
     public function messages(): array
     {
         return [
-            // напишите необходимые сообщения
+            'name.required' => 'Это поле обязательно',
+            'name.max' => 'Не более :max символов',
+            'value.required' => 'Это поле обязательно',
         ];
     }
 }

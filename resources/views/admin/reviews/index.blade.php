@@ -4,7 +4,7 @@
   {{-- Вставляется на место @yield('content') --}}
 
   <h2 class="main__title">
-    Услуги
+    Отзывы
   </h2>
 
   <table class="main__panel">

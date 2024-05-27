@@ -62,7 +62,7 @@
       </label>
       <input type="text" id="office_id" name="office_id"
         class="form__input @error('office_id') form__input_error @enderror"
-        value="{{ old('office_id') ?? $user->office->name }}" disabled>
+        value="{{ old('office_id') ?? ($user->office->name ?? '') }}" disabled>
       @error('office_id')
         <div class="form__message">
           {{ $message }}
