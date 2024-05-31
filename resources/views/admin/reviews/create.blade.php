@@ -1,18 +1,12 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
-  {{-- Вставляется на место @yield('content') --}}
-
-  <h2 class="main__title">Создание отзыва</h2>
-  <form action="{{ route('reviews.store') }}" method="post" class="main__form form">
+  <form action="{{ route('admin.reviews.store') }}" method="post" class="main__form form">
     @csrf
 
     <div class="form__row">
-      <label for="name" class="form__label">
-        Имя
-      </label>
       <input type="text" id="name" name="name" class="form__input @error('name') form__input_error @enderror"
-        value="{{ old('name') }}">
+        value="{{ old('name') }}" placeholder="Имя">
       @error('name')
         <div class="form__message">
           {{ $message }}
@@ -21,10 +15,18 @@
     </div>
 
     <div class="form__row">
-      <label for="text" class="form__label">
-        Отзыв
-      </label>
-      <textarea name="text" id="text" rows="5" class="form__input @error('text') form__input_error @enderror">{{ old('text') }}</textarea>
+      <input type="text" name="email" id="email" class="form__input @error('email') form__input_error @enderror"
+        value="{{ old('email') }}" placeholder="Адрес электронной почты">
+      @error('email')
+        <div class="form__message">
+          {{ $message }}
+        </div>
+      @enderror
+    </div>
+
+    <div class="form__row">
+      <textarea name="text" id="text" rows="5" class="form__input @error('text') form__input_error @enderror"
+        placeholder="Отзыв">{{ old('text') }}</textarea>
       @error('text')
         <div class="form__message">
           {{ $message }}
@@ -46,23 +48,10 @@
     </div>
 
     <div class="form__row">
-      <label for="email" class="form__label">
-        Адрес электронной почты
-      </label>
-      <input type="email" name="email" id="email" class="form__input @error('email') form__input_error @enderror"
-        value="{{ old('email') }}">
-      @error('email')
-        <div class="form__message">
-          {{ $message }}
-        </div>
-      @enderror
-    </div>
-
-    <div class="form__row">
-      <label for="status" class="form__label">
-        Статус
-      </label>
       <select name="status" id="status" class="form__select @error('status') form__input_error @enderror">
+        <option selected disabled>
+          Статус
+        </option>
         <option @selected(old('status') == 'Новый')>
           Новый
         </option>

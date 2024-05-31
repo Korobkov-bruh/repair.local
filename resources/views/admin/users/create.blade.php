@@ -1,18 +1,12 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
-  {{-- Вставляется на место @yield('content') --}}
-
-  <h2 class="main__title">Добавление сотрудника</h2>
-  <form action="{{ route('users.store') }}" method="post" class="main__form form">
+  <form action="{{ route('admin.users.store') }}" method="post" class="main__form form">
     @csrf
 
     <div class="form__row">
-      <label for="name" class="form__label">
-        Ф.И.О. сотрудника
-      </label>
       <input type="text" id="name" name="name" class="form__input @error('name') form__input_error @enderror"
-        value="{{ old('name') }}">
+        value="{{ old('name') }}" placeholder="Ф.И.О. сотрудника">
       @error('name')
         <div class="form__message">
           {{ $message }}
@@ -21,11 +15,8 @@
     </div>
 
     <div class="form__row">
-      <label for="name" class="form__label">
-        Логин
-      </label>
       <input type="text" id="login" name="login" class="form__input @error('login') form__input_error @enderror"
-        value="{{ old('login') }}">
+        value="{{ old('login') }}" placeholder="Логин">
       @error('login')
         <div class="form__message">
           {{ $message }}
@@ -34,10 +25,10 @@
     </div>
 
     <div class="form__row">
-      <label for="position" class="form__label">
-        Должность
-      </label>
       <select class="form__input @error('position') form__input_error @enderror" id="position" name="position">
+        <option selected disabled>
+          Должность
+        </option>
         <option value="admin" @selected(old('position') == 'admin')>
           Администратор
         </option>
@@ -56,10 +47,10 @@
     </div>
 
     <div class="form__row">
-      <label for="office_id" class="form__label">
-        Офис
-      </label>
       <select class="form__input @error('position') form__input_error @enderror" id="office_id" name="office_id">
+        <option selected disabled>
+          Офис
+        </option>
         @forelse($offices as $office)
           <option value="{{ $office->id }}" @selected(old('office_id') == $office->id)>
             {{ $office->name }}
@@ -75,11 +66,8 @@
     </div>
 
     <div class="form__row">
-      <label for="email" class="form__label">
-        Адрес электронной почты
-      </label>
       <input type="text" id="email" name="email" class="form__input @error('email') form__input_error @enderror"
-        value="{{ old('email') }}">
+        value="{{ old('email') }}" placeholder="Адрес электронной почты">
       @error('email')
         <div class="form__message">
           {{ $message }}
@@ -88,11 +76,9 @@
     </div>
 
     <div class="form__row">
-      <label for="password" class="form__label">
-        Пароль
-      </label>
       <input type="password" id="password" name="password"
-        class="form__input @error('password') form__input_error @enderror" value="{{ old('password') }}">
+        class="form__input @error('password') form__input_error @enderror" value="{{ old('password') }}"
+        placeholder="Пароль">
       @error('password')
         <div class="form__message">
           {{ $message }}

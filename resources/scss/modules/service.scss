@@ -1,0 +1,22 @@
+.service {
+    margin-bottom: 50px;
+    // .service__items
+
+    &__items {
+        display: grid;
+        grid-auto-flow: column;
+        justify-items: center;
+        text-align: center;
+        column-gap: 50px;
+    }
+
+    // .service__item
+
+    &__item {
+        background-color: rgb(255, 255, 255);
+        border: 1px solid black;
+        padding: 15px 30px 15px 30px;
+        border-radius: 5px;
+        align-content: center;
+    }
+}

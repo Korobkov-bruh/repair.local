@@ -1,41 +1,35 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
-  {{-- Вставляется на место @yield('content') --}}
-
-  <h2 class="main__title">
-    Отзывы
-  </h2>
-
   <table class="main__panel">
-    <thead>
-      <th>ID</th>
-      <th>Имя</th>
-      <th>Оценка</th>
-      <th>Отзыв</th>
-      <th>Статус</th>
-      <th>
-        <a href="{{ route('reviews.create') }}" class="form__button_small">
+    <thead class="panel__thead">
+      <th class="panel__th">ID</th>
+      <th class="panel__th">Имя</th>
+      <th class="panel__th">Оценка</th>
+      <th class="panel__th">Отзыв</th>
+      <th class="panel__th">Статус</th>
+      <th class="panel__th">
+        <a href="{{ route('admin.reviews.create') }}" class="form__button_small panel__add">
           Добавить отзыв
         </a>
       </th>
     </thead>
-    <tbody>
+    <tbody class="panel__tbody">
       @forelse($reviews as $review)
-        <tr>
-          <td>{{ $review->id }}</td>
-          <td>{{ $review->name }}</td>
-          <td>{{ $review->rating }}</td>
-          <td>{{ $review->text }}</td>
-          <td>{{ $review->status }}</td>
-          <td>
-            <a href="{{ route('reviews.show', $review->id) }}" class="form__button_small">
+        <tr class="panel__tr">
+          <td class="panel__td">{{ $review->id }}</td>
+          <td class="panel__td">{{ $review->name }}</td>
+          <td class="panel__td">{{ $review->rating }}</td>
+          <td class="panel__td">{{ $review->text }}</td>
+          <td class="panel__td">{{ $review->status }}</td>
+          <td class="panel__td panel__buttons">
+            <a href="{{ route('admin.reviews.show', $review->id) }}" class="form__button_small panel__link">
               Просмотр
             </a>
-            <a href="{{ route('reviews.edit', $review->id) }}" class="form__button_small">
+            <a href="{{ route('admin.reviews.edit', $review->id) }}" class="form__button_small panel__link">
               Редактировать
             </a>
-            <form action="{{ route('reviews.destroy', $review->id) }}" method="post">
+            <form action="{{ route('admin.reviews.destroy', $review->id) }}" method="post" class="panel__link">
               @csrf
               @method('delete')
 
@@ -46,8 +40,8 @@
           </td>
         </tr>
       @empty
-        <tr>
-          <td colspan="6">Нет отзывов</td>
+        <tr class="panel__tr">
+          <td colspan="6" class="panel__td">Нет отзывов</td>
         </tr>
       @endforelse
     </tbody>

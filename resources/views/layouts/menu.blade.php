@@ -1,3 +1,23 @@
+{{-- открытая часть  --}}
+
+<li class="header__item">
+  <a href="{{ route('user.price') }}" class="header__link">
+    Прайс-лист
+  </a>
+</li>
+
+<li class="header__item">
+  <a href="{{ route('user.status') }}" class="header__link">
+    Статус ремонта
+  </a>
+</li>
+
+<li class="header__item">
+  <a href="{{ route('user.feedbacks.create') }}" class="header__link">
+    Отзывы
+  </a>
+</li>
+
 {{-- не авторизованный пользователь --}}
 @guest
   <li class="header__item">
@@ -11,46 +31,10 @@
 @auth
 
   <li class="header__item">
-    <a class="header__link header__link_active">
-      {{ Auth::user()->name }}
+    <a href="{{ route('admin.home') }}" class="header__link">
+      Панель администратора
     </a>
   </li>
-  <li class="header__item">
-    <a href="{{ route('applications.index') }}" class="header__link">
-      Заявки
-    </a>
-  </li>
-
-
-  {{-- администратор --}}
-  @can('admin')
-    <li class="header__item">
-      <a href="{{ route('services.index') }}" class="header__link">
-        Услуги
-      </a>
-    </li>
-    <li class="header__item">
-      <a href="{{ route('reviews.index') }}" class="header__link">
-        Отзывы
-      </a>
-    </li>
-    <li class="header__item">
-      <a href="{{ route('offices.index') }}" class="header__link">
-        Офисы
-      </a>
-    </li>
-    <li class="header__item">
-      <a href="{{ route('users.index') }}" class="header__link">
-        Сотрудники
-      </a>
-    </li>
-    <li class="header__item">
-      <a href="{{ route('details.index') }}" class="header__link">
-        Настройки
-      </a>
-    </li>
-  @endcan
-
 
   {{-- кнопка выход --}}
   <form action="{{ route('logout') }}" method="post">

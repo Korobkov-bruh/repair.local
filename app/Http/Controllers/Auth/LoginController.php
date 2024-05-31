@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class LoginController extends Controller
 {
-
     /**
      * Форма аутентификации
      */
@@ -16,6 +16,7 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
+
 
     /**
      * Обработка попыток аутентификации.
@@ -26,7 +27,7 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request)
     {
-        // получаем только емейл и пароль
+        // получаем только login и пароль
         $credentials = $request->only('login', 'password');
         // Метод attempt
         // вернет true, если аутентификация прошла успешно.

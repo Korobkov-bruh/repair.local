@@ -1,10 +1,7 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
-  {{-- Вставляется на место @yield('content') --}}
-
-  <h2 class="main__title">Редактирование заявки</h2>
-  <form action="{{ route('applications.update', $application->id) }}" method="post" class="main__form form">
+  <form action="{{ route('admin.applications.update', $application->id) }}" method="post" class="main__form form">
     @csrf
     @method('put')
 

@@ -1,18 +1,12 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
-  {{-- Вставляется на место @yield('content') --}}
-
-  <h2 class="main__title">Добавить новую настройку</h2>
-  <form action="{{ route('details.store') }}" method="post" class="main__form form">
+  <form action="{{ route('admin.details.store') }}" method="post" class="main__form form">
     @csrf
 
     <div class="form__row">
-      <label for="name" class="form__label">
-        Название поля
-      </label>
       <input type="text" id="name" name="name" class="form__input @error('name') form__input_error @enderror"
-        value="{{ old('name') }}">
+        value="{{ old('name') }}" placeholder="Название поля">
       @error('name')
         <div class="form__message">
           {{ $message }}
@@ -21,11 +15,8 @@
     </div>
 
     <div class="form__row">
-      <label for="value" class="form__label">
-        Значение
-      </label>
       <input type="text" id="value" name="value" class="form__input @error('value') form__input_error @enderror"
-        value="{{ old('value') }}">
+        value="{{ old('value') }}" placeholder="Значение">
       @error('value')
         <div class="form__message">
           {{ $message }}
@@ -34,11 +25,8 @@
     </div>
 
     <div class="form__row">
-      <label for="description" class="form__label">
-        Описание значения
-      </label>
       <textarea name="description" id="description" rows="5"
-        class="form__input @error('description') form__input_error @enderror">{{ old('description') }}</textarea>
+        class="form__input @error('description') form__input_error @enderror" placeholder="Описание значения">{{ old('description') }}</textarea>
       @error('description')
         <div class="form__message">
           {{ $message }}

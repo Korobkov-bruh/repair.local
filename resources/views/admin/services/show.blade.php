@@ -1,13 +1,7 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
-  {{-- Вставляется на место @yield('content') --}}
-
-  <h2 class="main__title">Редактирование услуги</h2>
   <form action="#" method="post" class="main__form form">
-
-
-
     <div class="form__row">
       <label for="name" class="form__label">
         Имя услуги
@@ -47,7 +41,7 @@
       @enderror
     </div>
 
-    <a href="{{ route('services.edit', $service->id) }}">
+    <a href="{{ route('admin.services.edit', $service->id) }}">
       Редактировать
     </a>
 

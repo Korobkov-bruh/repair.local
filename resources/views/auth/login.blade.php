@@ -1,19 +1,13 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
   <!--Форма авторизации-->
-  <h2 class="main__title">
-    Авторизация
-  </h2>
   <form class="main__form form" action="{{ route('login') }}" method="post">
     @csrf
 
     <div class="form__row">
-      <label for="login" class="form__label">
-        Логин
-      </label>
       <input type="text" id="login" name="login" class="form__input @error('login') form__input_error @enderror"
-        value="{{ old('login') }}">
+        value="{{ old('login') }}" placeholder="Логин">
       @error('login')
         <div class="form__message">
           {{ $message }}
@@ -22,12 +16,9 @@
     </div>
 
     <div class="form__row">
-      <label for="password" class="form__label">
-        Пароль
-      </label>
       <input type="password" id="password" name="password"
         class="form__input
-        @error('password') form__input_error @enderror">
+        @error('password') form__input_error @enderror" placeholder="Пароль">
       @error('password')
         <div class="form__message">
           {{ $message }}

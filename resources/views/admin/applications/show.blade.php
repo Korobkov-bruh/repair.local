@@ -1,9 +1,6 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
-  {{-- Вставляется на место @yield('content') --}}
-
-  <h2 class="main__title">Просмотр заявки</h2>
   <div class="main__form form">
     @csrf
 
@@ -110,7 +107,7 @@
       @enderror
     </div>
 
-    <a href="{{ route('applications.edit', $application->id) }}" class="form__button_small">
+    <a href="{{ route('admin.applications.edit', $application->id) }}" class="form__button_small">
       Редактировать
     </a>
 

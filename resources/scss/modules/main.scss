@@ -3,7 +3,7 @@
 
     display: grid;
     grid-template-columns: 1fr minmax(auto, 1200px) 1fr;
-    grid-template-rows: 40px 1fr;
+    grid-template-rows: 1fr;
     align-content: start;
     row-gap: 20px;
 
@@ -13,6 +13,7 @@
         padding: 10px;
         justify-self: center;
         align-self: center;
+        text-align: center;
     }
 
     &__form {
@@ -26,7 +27,53 @@
         grid-column: 2 / 3;
 
         align-self: start;
+
         background-color: #ffffff;
         padding: 20px;
     }
+
+    &__form {
+        grid-column: 2 / 3;
+        align-self: start;
+        justify-self: center;
+    }
+
+    &__leader {
+        grid-column: 2 / 3;
+        align-self: start;
+        justify-self: center;
+    }
+
+    &__status {
+        grid-column: 2 / 3;
+        align-self: start;
+        justify-self: center;
+    }
+
+    // .main__offices
+}
+
+.status {
+    &__item {
+        display: grid;
+        grid-template-rows: 40px minmax(auto, 1fr);
+        text-align: center;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        background-color: rgb(230, 230, 230);
+        padding: 10px 50px 10px 50px;
+        border-radius: 10px;
+    }
+
+    // .status__title
+
+    &__title {
+        border: 1px solid #000000;
+    }
+
+    // .status__text
+
+    &__text {}
 }

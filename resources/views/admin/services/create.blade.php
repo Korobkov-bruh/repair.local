@@ -1,55 +1,42 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
-{{-- Вставляется на место @yield('content') --}}
-
-<h2 class="main__title">Создание услуги</h2>
-<form action="{{ route('services.store') }}" method="post" class="main__form form">
+  <form action="{{ route('admin.services.store') }}" method="post" class="main__form form">
     @csrf
 
     <div class="form__row">
-        <label for="name" class="form__label">
-            Имя услуги
-        </label>
-        <input type="text" id="name" name="name" class="form__input @error('name') form__input_error @enderror"
-            value="{{ old('name') }}">
-        @error('name')
+      <input type="text" id="name" name="name" class="form__input @error('name') form__input_error @enderror"
+        value="{{ old('name') }}" placeholder="Имя услуги">
+      @error('name')
         <div class="form__message">
-            {{ $message }}
+          {{ $message }}
         </div>
-        @enderror
+      @enderror
     </div>
 
     <div class="form__row">
-        <label for="price" class="form__label">
-            Цена
-        </label>
-        <input type="number" id="price" name="price" class="form__input @error('price') form__input_error @enderror"
-            value="{{ old('price') }}" min="0">
-        @error('price')
+      <input type="number" id="price" name="price" class="form__input @error('price') form__input_error @enderror"
+        value="{{ old('price') }}" placeholder="Цена">
+      @error('price')
         <div class="form__message">
-            {{ $message }}
+          {{ $message }}
         </div>
-        @enderror
+      @enderror
     </div>
 
     <div class="form__row">
-        <label for="note" class="form__label">
-            Примечание
-        </label>
-        <textarea name="note" id="note" rows="5"
-            class="form__input @error('note') form__input_error @enderror">{{ old('note') }}</textarea>
-        @error('note')
+      <textarea name="note" id="note" rows="5" class="form__input @error('note') form__input_error @enderror"
+        placeholder="Примечание">{{ old('note') }}</textarea>
+      @error('note')
         <div class="form__message">
-            {{ $message }}
+          {{ $message }}
         </div>
-        @enderror
+      @enderror
     </div>
 
     <button type="submit" class="form__button">
-        Сохранить
+      Сохранить
     </button>
 
-</form>
-
+  </form>
 @endsection

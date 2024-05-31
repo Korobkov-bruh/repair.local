@@ -1,18 +1,13 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
-  {{-- Вставляется на место @yield('content') --}}
-
-  <h2 class="main__title">Добавить заявку</h2>
-  <form action="{{ route('applications.store') }}" method="post" class="main__form form">
+  <form action="{{ route('admin.applications.store') }}" method="post" class="main__form form">
     @csrf
 
     <div class="form__row">
-      <label for="created_at" class="form__label">
-        Дата заявки
-      </label>
       <input type="text" id="created_at" name="created_at"
-        class="form__input @error('created_at') form__input_error @enderror" value="{{ old('created_at') }}" disabled>
+        class="form__input @error('created_at') form__input_error @enderror" value="{{ old('created_at') }}" disabled
+        placeholder="Дата заявки">
       @error('created_at')
         <div class="form__message">
           {{ $message }}
@@ -21,11 +16,8 @@
     </div>
 
     <div class="form__row">
-      <label for="model" class="form__label">
-        Модель оборудования
-      </label>
       <input type="text" id="model" name="model" class="form__input @error('model') form__input_error @enderror"
-        value="{{ old('model') }}">
+        value="{{ old('model') }}" placeholder="Модель оборудования">
       @error('model')
         <div class="form__message">
           {{ $message }}
@@ -34,10 +26,8 @@
     </div>
 
     <div class="form__row">
-      <label for="fault" class="form__label">
-        Описание неисправности
-      </label>
-      <textarea name="fault" id="fault" rows="5" class="form__input @error('fault') form__input_error @enderror">{{ old('fault') }}</textarea>
+      <textarea name="fault" id="fault" rows="5" class="form__input @error('fault') form__input_error @enderror"
+        placeholder="Описание неисправности">{{ old('fault') }}</textarea>
       @error('fault')
         <div class="form__message">
           {{ $message }}
@@ -46,11 +36,9 @@
     </div>
 
     <div class="form__row">
-      <label for="customer" class="form__label">
-        Ф.И.О. заказчика
-      </label>
       <input type="text" id="customer" name="customer"
-        class="form__input @error('customer') form__input_error @enderror" value="{{ old('customer') }}">
+        class="form__input @error('customer') form__input_error @enderror" value="{{ old('customer') }}"
+        placeholder="Ф.И.О. заказчика">
       @error('customer')
         <div class="form__message">
           {{ $message }}
@@ -59,10 +47,10 @@
     </div>
 
     <div class="form__row">
-      <label for="status" class="form__label">
-        Статус заявки
-      </label>
       <select name="status" id="status" class="form__select @error('status') form__input_error @enderror">
+        <option disabled selected>
+          Статус заявки
+        </option>
         <option @selected(old('status') == 'Ремонт')>
           Ремонт
         </option>
@@ -81,10 +69,10 @@
     </div>
 
     <div class="form__row">
-      <label for="user_id" class="form__label">
-        Мастер
-      </label>
       <select name="user_id" id="user_id" class="form__select @error('user_id') form__input_error @enderror">
+        <option disabled selected>
+          Мастер
+        </option>
         @forelse($masters as $master)
           <option value="{{ $master->id }}" @selected(old('user_id') == $master->id)>
             {{ $master->name }}

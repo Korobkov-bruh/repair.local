@@ -1,0 +1,71 @@
+.panel {
+    border: 1px solid rgb(255, 255, 255);
+
+    &__add {
+        text-align: center;
+        font-size: 14px;
+        justify-self: center;
+        align-self: center;
+        background-color: rgb(255, 255, 255);
+        padding: 5px;
+        border-bottom: 1px solid #a1a1a100;
+
+        &:hover,
+        &_active {
+            border-bottom: 1px solid #a1a1a1;
+        }
+    }
+
+    // .panel__ths
+
+    &__thead {}
+
+    // .panel__th
+
+    &__th {
+        background-color: rgb(255, 255, 255);
+        padding: 3px;
+        // border: 1px solid rgb(218, 218, 218);
+        border: 1px solid #000000;
+    }
+
+    // .panel__tbody
+
+    &__tbody {}
+
+    // .panel__tr
+
+    &__tr {
+        padding: 3px;
+    }
+
+    // .panel__td
+
+    &__td {
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+        padding: 3px;
+        border: 1px solid #000000;
+    }
+
+    // .panel__link
+
+    &__link {
+        border-bottom: 1px solid rgba(255, 0, 0, 0);
+        @include button;
+        background-color: rgb(255, 255, 255);
+
+    }
+
+    &__buttons {
+        display: grid;
+        grid-auto-flow: column;
+        justify-self: center;
+        align-self: center;
+        padding: 30px;
+    }
+
+    &__left {
+        text-align: left;
+    }
+}

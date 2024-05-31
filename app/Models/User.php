@@ -56,11 +56,6 @@ class User extends Authenticatable
         return $this->belongsTo(Office::class);
     }
 
-    /**
-     * Получить заявки пользователя
-     *
-     * @return User
-     */
     public function applications()
     {
         return $this->hasMany(Application::class);

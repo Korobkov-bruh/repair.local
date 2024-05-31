@@ -1,0 +1,35 @@
+.reviews {
+    margin-bottom: 50px;
+    // .reviews__container
+
+    &__container {}
+
+    // .reviews__items
+
+    &__items {
+        display: grid;
+        grid-auto-flow: row;
+        row-gap: 20px;
+    }
+
+    &__item {
+        display: grid;
+        grid-auto-flow: row;
+        row-gap: 5px;
+        background-color: rgb(255, 255, 255);
+        padding: 5px 10px 5px 10px;
+        border: 1px solid #000000;
+    }
+
+    // .reviews__title
+
+    &__title {}
+
+    // .reviews__text
+
+    &__text {}
+
+    // .reviews__rating
+
+    &__rating {}
+}

@@ -25,7 +25,7 @@ class UpdateReviewRequest extends FormRequest
             'name' => ['required'],
             'text' => ['required'],
             'rating' => ['required', 'numeric', 'between:1,10'],
-            'email' => ['email', 'nullable'],
+            'email' => ['nullable', 'email'],
             'status' => ['required'],
         ];
     }
@@ -38,13 +38,13 @@ class UpdateReviewRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Введите имя',
-            'text.required' => 'Введите отзыв',
-            'rating.required' => 'Назначьте рейтинг',
-            'rating.numeric' => 'Это числовое значение',
-            'rating.between' => 'Должен быть в пределах :min>:max',
-            'email.email' => 'Введите e-mail',
-            'status.required' => 'Нзанчьте статус',
+            'name.required' => 'Введите название отзыва',
+            'text.required' => 'Напишите отзыв',
+            'rating.required' => 'Выставите вейтинг отзыва',
+            'rating.numeric' => 'Рэйтинг должен быть числом',
+            'rating.between' => 'Рейтинг должен быть в пределах :min->:max',
+            'email.email' => 'Введите e-mail (text@test.ru)',
+            'status.required' => 'Поставьте статус отзыва',
         ];
     }
 }

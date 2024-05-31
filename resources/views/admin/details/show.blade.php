@@ -1,10 +1,7 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
-  {{-- Вставляется на место @yield('content') --}}
-
-  <h2 class="main__title">Просмотр настройки</h2>
-  <form action="{{ route('details.update', $detail->id) }}" method="post" class="main__form form">
+  <form action="{{ route('admin.details.update', $detail->id) }}" method="post" class="main__form form">
     @csrf
     @method('put')
 
@@ -46,7 +43,7 @@
       @enderror
     </div>
 
-    <a href="{{ route('details.edit', $detail->id) }}" class="form__button">
+    <a href="{{ route('admin.details.edit', $detail->id) }}" class="form__button">
       Редактировать
     </a>
 

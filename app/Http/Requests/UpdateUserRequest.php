@@ -22,13 +22,10 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required'],
-            'login' => [
-                'required',
-            ],
-            'position' => ['required', 'max:20'],
-            'email' => ['required', 'max:50'],
-            'password' => ['nullable'],
+            'name' => ['required', 'string', 'max:255'],
+            'position' => ['required', 'string', 'max:20'],
+            'email' => ['required', 'string', 'max:20'],
+            'password' => ['nullable', 'string', 'max:255'],
         ];
     }
 
@@ -40,13 +37,17 @@ class UpdateUserRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Это поле обязательно',
-            'name.unique' => 'Это имя уже используется',
-            'login.unique' => 'Это имя уже используется',
-            'position.required' => 'Это поле обязательно',
-            'position.max' => 'Не более :max символов',
-            'email.required' => 'Это поле обязательно',
-            'email.max' => 'Не более :max символов',
+            'name.required' => 'Обязательно к заполнению',
+            'name.max' => 'Максимальное количество символов: :max',
+            'name.string' => 'Неверный тип значения',
+            'position.required' => 'Обязательно к заполнению',
+            'position.max' => 'Максимальное количество символов: :max',
+            'position.string' => 'Неверный тип значения',
+            'email.required' => 'Обязательно к заполнению',
+            'email.max' => 'Максимальное количество символов: :max',
+            'email.string' => 'Неверный тип значения',
+            'password.max' => 'Максимальное количество символов: :max',
+            'password.string' => 'Неверный тип значения',
         ];
     }
 }

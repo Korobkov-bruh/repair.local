@@ -13,7 +13,7 @@
 <body class="container">
 
   <header class="header">
-    <a href="{{ route('welcome') }}" class="header__logo">
+    <a href="{{ route('user.index') }}" class="header__logo">
       Проноут
     </a>
     <nav class="header__menu">
@@ -23,15 +23,24 @@
     </nav>
   </header>
 
-
   <main class="main">
     @yield('content')
   </main>
 
-
   <footer class="footer">
-    <div class="footer__copy">
-      &copy; Проноут, 2024
+    <div class="footer__items">
+      <div class="footer__copy">
+        {{ $details['name'] ?? '' }} &copy; 2021
+      </div>
+      <div class="footer__icq">
+        ICQ: {{ $details['icq'] ?? '' }}
+      </div>
+      <div class="footer__inn">
+        ИНН: {{ $details['inn'] ?? '' }}
+      </div>
+      <div class="footer__logo">
+        <img src="{{ asset('img/vk-logo.svg') }}" alt="" class="d-inline-block align-text-top">
+      </div>
     </div>
   </footer>
 

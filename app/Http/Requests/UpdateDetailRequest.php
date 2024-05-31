@@ -6,9 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateDetailRequest extends FormRequest
 {
-    /**
-     * Авторизация пользователя при запросе
-     */
     public function authorize(): bool
     {
         return true;
@@ -22,7 +19,9 @@ class UpdateDetailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // напишите необходимые правила
+            'name' => ['required', 'string', 'max:20'],
+            'value' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
         ];
     }
 
@@ -34,7 +33,13 @@ class UpdateDetailRequest extends FormRequest
     public function messages(): array
     {
         return [
-            // напишите необходимые сообщения
+            'name.required' => 'Обязательно к заполнению',
+            'name.max' => 'Максимальное количество символов: :max',
+            'name.string' => 'Неверный тип значения',
+            'value.required' => 'Обязательно к заполнению',
+            'value.max' => 'Максимальное количество символов: :max',
+            'value.string' => 'Неверный тип значения',
+            'description.string' => 'Неверный тип значения',
         ];
     }
 }

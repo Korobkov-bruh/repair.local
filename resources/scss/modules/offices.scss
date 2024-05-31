@@ -1,0 +1,60 @@
+.offices {
+    margin-bottom: 50px;
+    // .offices__container
+
+    // .offices__item
+
+    &__items {
+        display: grid;
+        grid-auto-flow: column;
+        column-gap: 50px;
+    }
+
+    // .offices__item
+
+    &__item {
+        background-color: rgb(255, 255, 255);
+    }
+
+    &__container {
+        display: grid;
+        grid-template-rows: 50px auto minmax(100px, 1fr);
+    }
+
+    // .offices__title
+
+    &__title {
+        grid-row: 1/2;
+        text-align: center;
+        padding: 5px 0px 5px 0px;
+        border: 1px solid #000000;
+    }
+
+    // .offices__map
+
+    &__map {
+        grid-row: 2/3;
+        border: 1px solid #000000;
+    }
+
+    // .offices__ul
+
+    &__ul {
+        padding: 5px 10px 5px 10px;
+        border: 1px solid #000000;
+        grid-column: 3/4;
+        display: grid;
+        grid-auto-flow: row;
+        row-gap: 10px;
+    }
+
+    // .offices__li
+
+    &__li {
+        align-content: center;
+    }
+
+    // .offices__link
+
+    &__link {}
+}

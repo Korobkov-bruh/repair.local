@@ -1,35 +1,29 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
-  {{-- Вставляется на место @yield('content') --}}
-
-  <h2 class="main__title">
-    Офисы
-  </h2>
-
   <table class="main__panel">
-    <thead>
-      <th>ID</th>
-      <th>Название офиса</th>
-      <th>
-        <a href="{{ route('offices.create') }}" class="form__button_small">
+    <thead class="panel__thead">
+      <th class="panel__th">ID</th>
+      <th class="panel__th">Название офиса</th>
+      <th class="panel__th">
+        <a href="{{ route('admin.offices.create') }}" class="form__button_small panel__add">
           Добавить
         </a>
       </th>
     </thead>
-    <tbody>
+    <tbody class="panel__tbody">
       @forelse($offices as $office)
-        <tr>
-          <td>{{ $office->id }}</td>
-          <td>{{ $office->name }}</td>
-          <td>
-            <a href="{{ route('offices.show', $office->id) }}" class="form__button_small">
+        <tr class="panel__tr">
+          <td class="panel__td">{{ $office->id }}</td>
+          <td class="panel__td">{{ $office->name }}</td>
+          <td class="panel__td panel__buttons">
+            <a href="{{ route('admin.offices.show', $office->id) }}" class="form__button_small panel__link">
               Просмотр
             </a>
-            <a href="{{ route('offices.edit', $office->id) }}" class="form__button_small">
+            <a href="{{ route('admin.offices.edit', $office->id) }}" class="form__button_small panel__link">
               Редактировать
             </a>
-            <form action="{{ route('offices.destroy', $office->id) }}" method="post">
+            <form action="{{ route('admin.offices.destroy', $office->id) }}" method="post" class="panel__link">
               @csrf
               @method('delete')
 
@@ -40,8 +34,8 @@
           </td>
         </tr>
       @empty
-        <tr>
-          <td colspan="3">Нет офисов</td>
+        <tr class="panel__tr">
+          <td colspan="3" class="panel__td">Нет офисов</td>
         </tr>
       @endforelse
     </tbody>
